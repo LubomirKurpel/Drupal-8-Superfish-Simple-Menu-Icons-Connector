@@ -1,0 +1,20 @@
+{
+  "name": "drupal/superfish_simple_menu_icons_connector", 
+  "type": "drupal-module",
+  "description": "Superfish + Simple Menu Icons - Connector",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/superfish_simple_menu_icons_connector",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/superfish_simple_menu_icons_connector",
+    "source": "http://cgit.drupalcode.org/superfish_simple_menu_icons_connector"
+  },
+  "require": {
+    "drupal/core": "^8.8 || ^9"
+  },
+  "require-dev": {
+    "drupal/superfish": "~1.0",
+    "drupal/simple_menu_icons": "~2.0"
+  }
+}

@@ -1,0 +1,46 @@
+<?php
+
+/**
+* Implements template_preprocess_superfish_menu_items().
+
+ * Prepares variables for Superfish menu items templates.
+ *
+ * Default template: superfish-menu-items.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: An associative array containing the properties of the element.
+ *     Properties used: #tree, #settings, #cloned_parent
+ *     - tree: The menu tree.
+ *     - menu_name: Unique menu identifier.
+ *     - settings: Block settings
+ *     - cloned_parent: Cloned sub-menu parent link.
+ *
+ * @see superfish-menu-items.html.twig
+ */
+ 
+function superfish_simple_menu_icons_preprocess_superfish_menu_items(array &$variables) {
+
+	foreach ($variables['menu_items'] as &$menu_item) {
+		
+		// check if menu has a menu_icon
+		if ($menu_item['link']['#options']['menu_icon']['fid']) {
+			
+			// get the UUID
+			$uuid_original = $menu_item['attributes']->offsetGet('id')->value('value');
+			$uuid_stripped = strstr($uuid_original, 'menu-link-content');
+			$uuid = str_replace("menu-link-content", "", $uuid_stripped);
+			
+			// load menu link properties by UUID
+			$menu_content = current(\Drupal::entityManager()->getStorage('menu_link_content')->loadByProperties(array('uuid' => $uuid)));
+
+			// add menu class
+			$class = 'menu-icon-' . $menu_content->id();
+			$menu_item['attributes']['class'][] = $class;
+
+
+		}
+
+	}
+
+}

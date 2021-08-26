@@ -1,0 +1,14 @@
+name: Superfish + Simple Menu Icons - Connector
+description: Adds an IDs for Superfish Menu's, so they are compatible with Simple Menu Icons module
+package: Grafeon
+
+type: module
+core_version_requirement: ^8.8 || ^9
+
+dependencies:
+  - drupal:superfish
+  - drupal:simple_menu_icons
+# Information added by Drupal.org packaging script on 2021-07-07
+version: '1.0.0'
+project: 'superfish_simple_menu_icons_connector'
+datestamp: 1625617946
